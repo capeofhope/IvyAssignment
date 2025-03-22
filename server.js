@@ -58,7 +58,7 @@ const fetchNames = async (query, version, retries = MAX_RETRIES) => {
 
 // Process queries in limited batches
 const processBatch = async (batch) => {
-    const results = await Promise.allSettled(batch.map((query) => fetchNames(query, "v1")));
+    const results = await Promise.allSettled(batch.map((query) => fetchNames(query, "v3")));
 
     results.forEach((res, index) => {
         if (res.status === "fulfilled" && Array.isArray(res.value)) {
